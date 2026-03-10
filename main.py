@@ -1,5 +1,5 @@
 import cv2
-
+import sys
 
 map_data = ""
 
@@ -7,7 +7,27 @@ m = 0
 Ax_start = 12
 Ay = 8
 
-img = cv2.imread('image/Tutorial_Level_Design (2).jpg')
+if len(sys.argv) < 2:
+    print("Drag an image onto this program.")
+    input("Press Enter to exit...")
+    sys.exit()
+
+image_path = sys.argv[1]
+
+img = cv2.imread(image_path)
+
+if img is None:
+    print("Failed to load image.")
+    input()
+    sys.exit()
+
+height, width = img.shape[:2]
+
+if width != 987 or height != 543: # can Resize but do not know if it wor
+    print("Resizing image to 987 x 543")
+    img = cv2.resize(img, (987, 543))
+
+print("Image size OK: 987 x 543")
 
 for y in range(17):
 
@@ -79,12 +99,16 @@ for y in range(17):
                 print("Unknown color:", pixel_color)
 
         Ax += 32
-    map_data += ","
+    map_data += ",\n"
     Ay += 32
 
 
     
 
+with open("map_output.txt", "w") as f:
+    f.write(map_data)
 
+print("Map saved to map_output.txt")
+input("Press Enter to exit...")
 
-print(map_data)
+# print(map_data)
