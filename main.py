@@ -91,7 +91,7 @@ for y in range(17):
                 
             elif 0 <= r <= 5 and 0 <= g <= 5 and 0 <= b <= 5:
                 map_data += "#d" 
-            elif 250 <= r <= 255 and 0 <= g <= 5 and 250 <= b <= 255:
+            elif 245 <= r <= 255 and 245 <= g <= 255 and 0 <= b <= 10:
                 print("powerOrb Color")
                 p = input() 
                 map_data += f"B{p}"
