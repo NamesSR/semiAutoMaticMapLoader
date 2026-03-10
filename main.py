@@ -56,7 +56,7 @@ for y in range(17):
                 map_data += f"P{p}"
 
             elif 35 <= r <= 48 and 95 <= g <= 108 and 40 <= b <= 55:
-                map_data += s + "gd"
+                map_data += "#gd"
 
             elif 40 <= r <= 50 and 40 <= g <= 50 and 40 <= b <= 50:
                 map_data += "#b"
